@@ -1,7 +1,7 @@
 import { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
-import { ArrowRight, CheckCircle, Loader2, User, Mail, Phone, Building2, Sparkles } from 'lucide-react';
+import { ArrowRight, CheckCircle, Loader2, User, Mail, Phone, Building2 } from 'lucide-react';
 import { toast } from 'sonner';
 
 interface FormData {
@@ -33,13 +33,11 @@ export const DemoFormSection = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Basic validation
     if (!formData.name.trim() || !formData.email.trim() || !formData.phone.trim()) {
       toast.error('Пожалуйста, заполните обязательные поля');
       return;
     }
 
-    // Email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(formData.email)) {
       toast.error('Пожалуйста, введите корректный email');
@@ -47,8 +45,6 @@ export const DemoFormSection = () => {
     }
 
     setIsSubmitting(true);
-
-    // Simulate API call
     await new Promise((resolve) => setTimeout(resolve, 1500));
 
     setIsSubmitting(false);
@@ -70,8 +66,8 @@ export const DemoFormSection = () => {
 
   return (
     <section id="demo" className="py-20 md:py-32 relative" ref={ref}>
-      {/* Background */}
-      <div className="absolute inset-0 bg-gradient-glow" />
+      {/* Background glow */}
+      <div className="absolute inset-0 bg-gradient-glow opacity-50" />
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-5xl mx-auto">
@@ -82,12 +78,12 @@ export const DemoFormSection = () => {
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.6 }}
             >
-              <span className="inline-block px-4 py-1 rounded-full bg-accent/10 text-accent text-sm font-medium mb-4">
+              <span className="inline-block px-4 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
                 Бесплатный демо-доступ
               </span>
               <h2 className="section-title text-foreground mb-6">
                 Попробуйте{' '}
-                <span className="text-gradient-accent">Citipedia Space</span>
+                <span className="text-gradient-primary">Citipedia Space</span>
                 {' '}прямо сейчас
               </h2>
               <p className="text-muted-foreground text-lg mb-8">
@@ -116,71 +112,67 @@ export const DemoFormSection = () => {
               initial={{ opacity: 0, x: 50 }}
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="glass-card p-8 relative overflow-hidden"
+              className="white-card p-8 relative"
             >
-              {/* Decorative glow */}
-              <div className="absolute -top-20 -right-20 w-40 h-40 bg-primary/20 rounded-full blur-3xl" />
-              <div className="absolute -bottom-20 -left-20 w-40 h-40 bg-accent/20 rounded-full blur-3xl" />
-
               {!isSubmitted ? (
-                <form onSubmit={handleSubmit} className="relative z-10 space-y-5">
-                  <div className="flex items-center gap-2 mb-6">
-                    <Sparkles className="w-5 h-5 text-accent" />
-                    <span className="font-display font-bold text-foreground">Получить демо-доступ</span>
+                <form onSubmit={handleSubmit} className="space-y-5">
+                  <div className="mb-6">
+                    <h3 className="font-display font-bold text-xl text-card-foreground">Получить демо-доступ</h3>
+                    <p className="text-sm text-card-foreground/60">Заполните форму и начните анализировать</p>
                   </div>
 
                   {/* Name */}
                   <div className="relative">
-                    <User className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+                    <User className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted" />
                     <input
                       type="text"
                       name="name"
                       placeholder="Ваше имя *"
                       value={formData.name}
                       onChange={handleChange}
-                      className="input-field pl-12"
+                      className="w-full pl-12 pr-4 py-3 rounded-xl bg-card-foreground/5 border border-card-foreground/10 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-card-foreground placeholder:text-card-foreground/40"
                       required
                     />
                   </div>
 
                   {/* Email */}
                   <div className="relative">
-                    <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+                    <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted" />
                     <input
                       type="email"
                       name="email"
                       placeholder="Email *"
                       value={formData.email}
                       onChange={handleChange}
-                      className="input-field pl-12"
+                      className="w-full pl-12 pr-4 py-3 rounded-xl bg-card-foreground/5 border border-card-foreground/10 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-card-foreground placeholder:text-card-foreground/40"
                       required
                     />
                   </div>
 
                   {/* Phone */}
                   <div className="relative">
-                    <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+                    <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted" />
                     <input
                       type="tel"
                       name="phone"
                       placeholder="Телефон *"
                       value={formData.phone}
                       onChange={handleChange}
-                      className="input-field pl-12"
+                      className="w-full pl-12 pr-4 py-3 rounded-xl bg-card-foreground/5 border border-card-foreground/10 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-card-foreground placeholder:text-card-foreground/40"
                       required
                     />
                   </div>
 
                   {/* Company */}
                   <div className="relative">
-                    <Building2 className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+                    <Building2 className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted" />
                     <input
                       type="text"
                       name="company"
                       placeholder="Название компании"
                       value={formData.company}
                       onChange={handleChange}
-                      className="input-field pl-12"
+                      className="w-full pl-12 pr-4 py-3 rounded-xl bg-card-foreground/5 border border-card-foreground/10 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-card-foreground placeholder:text-card-foreground/40"
                     />
                   </div>
 
@@ -189,7 +181,7 @@ export const DemoFormSection = () => {
                     name="businessType"
                     value={formData.businessType}
                     onChange={handleChange}
-                    className="input-field"
+                    className="w-full px-4 py-3 rounded-xl bg-card-foreground/5 border border-card-foreground/10 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-card-foreground"
                   >
                     <option value="">Тип бизнеса</option>
                     {businessTypes.map((type) => (
@@ -203,7 +195,7 @@ export const DemoFormSection = () => {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="btn-accent w-full disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="btn-primary w-full !py-4 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {isSubmitting ? (
                       <>
@@ -218,7 +210,7 @@ export const DemoFormSection = () => {
                     )}
                   </button>
 
-                  <p className="text-xs text-muted-foreground text-center">
+                  <p className="text-xs text-card-foreground/50 text-center">
                     Нажимая кнопку, вы соглашаетесь с{' '}
                     <a href="#" className="text-primary hover:underline">
                       политикой конфиденциальности
@@ -226,21 +218,21 @@ export const DemoFormSection = () => {
                   </p>
                 </form>
               ) : (
-                <div className="relative z-10 text-center py-8">
-                  <div className="w-20 h-20 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-6">
+                <div className="text-center py-8">
+                  <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-6">
                     <CheckCircle className="w-10 h-10 text-primary" />
                   </div>
-                  <h3 className="text-2xl font-display font-bold text-foreground mb-4">
+                  <h3 className="text-2xl font-display font-bold text-card-foreground mb-4">
                     Заявка отправлена!
                   </h3>
-                  <p className="text-muted-foreground mb-6">
+                  <p className="text-card-foreground/70 mb-6">
                     Теперь вы можете перейти к демо-версии и изучить возможности платформы.
                   </p>
                   <a
                     href="https://rbp.qala-ai.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="btn-accent inline-flex"
+                    className="btn-primary inline-flex"
                   >
                     Перейти к демо
                     <ArrowRight className="w-5 h-5" />

@@ -42,9 +42,6 @@ export const SolutionSection = () => {
 
   return (
     <section id="solution" className="py-20 md:py-32 relative" ref={ref}>
-      {/* Background Glow */}
-      <div className="absolute inset-0 bg-gradient-glow opacity-50" />
-
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
         <motion.div
@@ -73,19 +70,19 @@ export const SolutionSection = () => {
               initial={{ opacity: 0, y: 40 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="glass-card p-6 group hover:border-primary/30 transition-all hover:shadow-glow"
+              className="white-card p-6 group hover:shadow-2xl transition-all duration-300"
             >
               {/* Icon */}
-              <div className="feature-icon mb-4 group-hover:animate-pulse-glow transition-all">
-                <benefit.icon className="w-7 h-7 text-primary-foreground" />
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                <benefit.icon className="w-6 h-6 text-primary-foreground" />
               </div>
 
               {/* Content */}
-              <h3 className="text-lg font-display font-bold text-foreground mb-2 flex items-center gap-2">
+              <h3 className="text-lg font-display font-bold text-card-foreground mb-2 flex items-center gap-2">
                 {benefit.title}
                 <CheckCircle2 className="w-4 h-4 text-primary opacity-0 group-hover:opacity-100 transition-opacity" />
               </h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">
+              <p className="text-card-foreground/70 text-sm leading-relaxed">
                 {benefit.description}
               </p>
             </motion.div>
@@ -115,7 +112,7 @@ export const SolutionSection = () => {
             ].map((category) => (
               <span
                 key={category}
-                className="px-4 py-2 rounded-full bg-secondary text-foreground text-sm font-medium border border-border hover:border-primary/50 transition-colors"
+                className="px-4 py-2 rounded-full bg-secondary text-foreground text-sm font-medium border border-border hover:border-primary/50 hover:bg-primary/10 transition-colors"
               >
                 {category}
               </span>
