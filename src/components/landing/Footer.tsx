@@ -4,13 +4,13 @@ export const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="py-16 border-t border-border/50">
+    <footer className="py-16 border-t border-border">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
           <div className="lg:col-span-2">
             <a href="#" className="flex items-center gap-2 mb-4">
-              <div className="feature-icon !w-10 !h-10 !rounded-lg">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center">
                 <MapPin className="w-5 h-5 text-primary-foreground" />
               </div>
               <span className="font-display font-bold text-xl text-foreground">
@@ -55,7 +55,7 @@ export const Footer = () => {
             <ul className="space-y-4">
               <li>
                 <a
-                  href="mailto:info@citipedia.space"
+                  href="mailto:info@qala-ai.com"
                   className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors"
                 >
                   <Mail className="w-5 h-5" />
@@ -81,14 +81,14 @@ export const Footer = () => {
             <div className="flex items-center gap-4 mt-6">
               <a
                 href="#"
-                className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all"
+                className="w-10 h-10 rounded-xl bg-secondary flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all"
                 aria-label="LinkedIn"
               >
                 <Linkedin className="w-5 h-5" />
               </a>
               <a
                 href="#"
-                className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all"
+                className="w-10 h-10 rounded-xl bg-secondary flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all"
                 aria-label="Telegram"
               >
                 <MessageCircle className="w-5 h-5" />
@@ -98,7 +98,7 @@ export const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-border/50 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="pt-8 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground">
             © {currentYear} Citipedia Space. Все права защищены.
           </p>

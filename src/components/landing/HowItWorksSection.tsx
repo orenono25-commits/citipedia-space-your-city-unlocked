@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Search, MapPin, FileText, Send, ArrowDown } from 'lucide-react';
+import { Search, MapPin, FileText, Send } from 'lucide-react';
 
 const steps = [
   {
@@ -51,47 +51,44 @@ export const HowItWorksSection = () => {
           </p>
         </motion.div>
 
-        {/* Steps */}
-        <div className="max-w-4xl mx-auto">
-          {steps.map((step, index) => (
-            <motion.div
-              key={step.title}
-              initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-              animate={isInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.15 }}
-              className="relative"
-            >
-              <div className={`flex items-start gap-6 md:gap-10 ${index % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
-                {/* Step Number & Icon */}
-                <div className="flex-shrink-0 relative">
-                  <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center shadow-glow">
-                    <step.icon className="w-8 h-8 md:w-10 md:h-10 text-primary-foreground" />
-                  </div>
-                  <span className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-accent text-accent-foreground text-sm font-bold flex items-center justify-center shadow-accent">
-                    {index + 1}
-                  </span>
-                </div>
+        {/* Steps - Horizontal Timeline */}
+        <div className="max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-4 gap-6">
+            {steps.map((step, index) => (
+              <motion.div
+                key={step.title}
+                initial={{ opacity: 0, y: 40 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: index * 0.15 }}
+                className="relative"
+              >
+                {/* Connector Line */}
+                {index < steps.length - 1 && (
+                  <div className="hidden md:block absolute top-10 left-1/2 w-full h-px bg-gradient-to-r from-primary/50 to-primary/10 z-0" />
+                )}
 
-                {/* Content */}
-                <div className={`flex-1 pb-12 ${index % 2 === 1 ? 'md:text-right' : ''}`}>
-                  <h3 className="text-xl md:text-2xl font-display font-bold text-foreground mb-3">
+                <div className="white-card p-6 relative z-10 h-full">
+                  {/* Step Number */}
+                  <div className="absolute -top-3 -left-3 w-8 h-8 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-sm font-bold text-primary-foreground shadow-glow">
+                    {index + 1}
+                  </div>
+
+                  {/* Icon */}
+                  <div className="w-14 h-14 rounded-2xl bg-card-foreground/5 flex items-center justify-center mb-4 mx-auto">
+                    <step.icon className="w-7 h-7 text-primary" />
+                  </div>
+
+                  {/* Content */}
+                  <h3 className="text-lg font-display font-bold text-card-foreground mb-2 text-center">
                     {step.title}
                   </h3>
-                  <p className="text-muted-foreground leading-relaxed max-w-md">
+                  <p className="text-card-foreground/70 text-sm leading-relaxed text-center">
                     {step.description}
                   </p>
                 </div>
-              </div>
-
-              {/* Connector Line */}
-              {index < steps.length - 1 && (
-                <div className="absolute left-8 md:left-10 top-20 md:top-24 w-px h-12 md:h-8">
-                  <div className="w-full h-full bg-gradient-to-b from-primary/50 to-transparent" />
-                  <ArrowDown className="w-4 h-4 text-primary/50 absolute -bottom-4 -left-1.5" />
-                </div>
-              )}
-            </motion.div>
-          ))}
+              </motion.div>
+            ))}
+          </div>
         </div>
 
         {/* CTA */}
@@ -101,7 +98,7 @@ export const HowItWorksSection = () => {
           transition={{ duration: 0.6, delay: 0.6 }}
           className="text-center mt-12"
         >
-          <a href="#demo" className="btn-accent inline-flex">
+          <a href="#demo" className="btn-primary inline-flex">
             Попробовать бесплатно
           </a>
         </motion.div>

@@ -1,133 +1,138 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, MapPin, BarChart3, Shield, Zap } from 'lucide-react';
+import { ArrowRight, MapPin } from 'lucide-react';
 import heroMapBg from '@/assets/hero-map-bg.jpg';
+
 export const HeroSection = () => {
   const scrollToDemo = () => {
     document.getElementById('demo')?.scrollIntoView({
       behavior: 'smooth'
     });
   };
-  return <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-      {/* Background Image */}
+
+  return (
+    <section className="relative min-h-screen flex items-center overflow-hidden pt-24 pb-20">
+      {/* Background with gradient glow */}
       <div className="absolute inset-0 z-0">
-        <img src={heroMapBg} alt="City analytics map" className="w-full h-full object-cover opacity-60" />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-background/70 to-background" />
+        <img 
+          src={heroMapBg} 
+          alt="City analytics map" 
+          className="w-full h-full object-cover opacity-30" 
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/80 to-background" />
+        {/* Magenta/violet glow at bottom */}
         <div className="absolute inset-0 bg-gradient-glow" />
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-4xl mx-auto text-center">
-          {/* Badge */}
-          <motion.div initial={{
-          opacity: 0,
-          y: 20
-        }} animate={{
-          opacity: 1,
-          y: 0
-        }} transition={{
-          duration: 0.5
-        }} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/30 mb-8">
-            <Zap className="w-4 h-4 text-primary" />
-            <span className="text-sm font-medium text-primary">AI-аналитика локаций в городе</span>
-          </motion.div>
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Left Content */}
+          <div>
+            {/* Badge */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/30 mb-6"
+            >
+              <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+              <span className="text-sm font-medium text-primary">Gini</span>
+            </motion.div>
 
-          {/* Headline */}
-          <motion.h1 initial={{
-          opacity: 0,
-          y: 30
-        }} animate={{
-          opacity: 1,
-          y: 0
-        }} transition={{
-          duration: 0.6,
-          delay: 0.1
-        }} className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-display font-bold leading-tight mb-6">
-            Выбирайте{' '}
-            <span className="text-gradient-primary">идеальную локацию</span>
-            {' '}для вашего бизнеса
-          </motion.h1>
+            {/* Headline */}
+            <motion.h1 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-tight mb-6 text-foreground"
+            >
+              Принимайте{' '}
+              <span className="text-gradient-primary">умные решения</span>
+              {' '}с Citipedia Space
+            </motion.h1>
 
-          {/* Subheadline */}
-          <motion.p initial={{
-          opacity: 0,
-          y: 30
-        }} animate={{
-          opacity: 1,
-          y: 0
-        }} transition={{
-          duration: 0.6,
-          delay: 0.2
-        }} className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10">Анализируйте любую точку города за минуты. Минимизируйте риски инвестиций. Откройте бизнес там,
-где находится ваша аудитория.</motion.p>
+            {/* Subheadline */}
+            <motion.p 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-lg md:text-xl text-muted-foreground max-w-xl mb-8"
+            >
+              Анализируйте локации с помощью ИИ, чтобы понять ДНК места. 
+              Превращаем данные в ясные инсайты для быстрых и уверенных решений.
+            </motion.p>
 
-          {/* CTA Buttons */}
-          <motion.div initial={{
-          opacity: 0,
-          y: 30
-        }} animate={{
-          opacity: 1,
-          y: 0
-        }} transition={{
-          duration: 0.6,
-          delay: 0.3
-        }} className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
-            <button onClick={scrollToDemo} className="btn-accent group">
-              Получить демо-доступ
-              <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
-            </button>
-            <a href="#how-it-works" className="inline-flex items-center gap-2 px-6 py-4 text-muted-foreground hover:text-foreground transition-colors font-medium">
-              Узнать как это работает
-            </a>
-          </motion.div>
+            {/* CTA Button */}
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
+              <button onClick={scrollToDemo} className="btn-primary group">
+                Начать сейчас
+                <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+              </button>
+            </motion.div>
 
-          {/* Stats */}
-          <motion.div initial={{
-          opacity: 0,
-          y: 40
-        }} animate={{
-          opacity: 1,
-          y: 0
-        }} transition={{
-          duration: 0.6,
-          delay: 0.4
-        }} className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto">
-            {[{
-            icon: Zap,
-            value: '3-7 мин',
-            label: 'на отчёт'
-          }, {
-            icon: BarChart3,
-            value: '100%',
-            label: 'объективных данных'
-          }, {
-            icon: MapPin,
-            value: '28+',
-            label: 'категорий бизнеса'
-          }, {
-            icon: Shield,
-            value: 'AI',
-            label: 'технологии анализа'
-          }].map((stat, index) => <motion.div key={stat.label} initial={{
-            opacity: 0,
-            scale: 0.9
-          }} animate={{
-            opacity: 1,
-            scale: 1
-          }} transition={{
-            duration: 0.5,
-            delay: 0.5 + index * 0.1
-          }} className="glass-card p-4 text-center">
-                <stat.icon className="w-6 h-6 text-primary mx-auto mb-2" />
-                <div className="text-2xl md:text-3xl font-display font-bold text-foreground mb-1">
-                  {stat.value}
+            {/* Trust Badge */}
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              className="mt-12 text-sm text-muted-foreground"
+            >
+              Нам доверяют 100+ компаний
+            </motion.p>
+          </div>
+
+          {/* Right Side - White Card (like MyTraffic) */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="relative"
+          >
+            <div className="white-card p-8 md:p-12">
+              <div className="text-center">
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-accent flex items-center justify-center mx-auto mb-6">
+                  <MapPin className="w-8 h-8 text-primary-foreground" />
                 </div>
-                <div className="text-xs text-muted-foreground">{stat.label}</div>
-              </motion.div>)}
+                <h2 className="text-2xl md:text-3xl font-display font-bold text-card-foreground mb-4">
+                  Познакомьтесь с <span className="text-gradient-primary">Gini</span>
+                </h2>
+                <p className="text-muted text-card-foreground/70 mb-8">
+                  AI-ассистент для анализа локаций, который понимает ваш бизнес
+                </p>
+                
+                {/* Demo Stats */}
+                <div className="grid grid-cols-2 gap-4">
+                  {[
+                    { value: '3-7 мин', label: 'на анализ' },
+                    { value: '28+', label: 'категорий' },
+                    { value: '100%', label: 'данных' },
+                    { value: 'AI', label: 'технологии' },
+                  ].map((stat) => (
+                    <div 
+                      key={stat.label}
+                      className="p-4 rounded-xl bg-card-foreground/5"
+                    >
+                      <div className="text-2xl font-display font-bold text-gradient-primary">
+                        {stat.value}
+                      </div>
+                      <div className="text-sm text-card-foreground/60">{stat.label}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Decorative glow */}
+            <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-accent/20 rounded-3xl blur-3xl -z-10" />
           </motion.div>
         </div>
       </div>
 
-      {/* Decorative elements */}
+      {/* Bottom gradient fade */}
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent z-10" />
-    </section>;
+    </section>
+  );
 };

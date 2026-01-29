@@ -80,12 +80,12 @@ export const FAQSection = () => {
               <AccordionItem
                 key={index}
                 value={`item-${index}`}
-                className="glass-card border-none px-6 py-2 overflow-hidden"
+                className="white-card border-none px-6 py-2 overflow-hidden"
               >
-                <AccordionTrigger className="text-left font-display font-semibold text-foreground hover:text-primary transition-colors hover:no-underline py-4">
+                <AccordionTrigger className="text-left font-display font-semibold text-card-foreground hover:text-primary transition-colors hover:no-underline py-4">
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground leading-relaxed pb-4">
+                <AccordionContent className="text-card-foreground/70 leading-relaxed pb-4">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>
