@@ -35,7 +35,7 @@ export const HeroSection = () => {
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/30 mb-6"
             >
               <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-              <span className="text-sm font-medium text-primary">Gini</span>
+              <span className="text-sm font-medium text-primary">Аналитика локаций</span>
             </motion.div>
 
             {/* Headline */}
@@ -97,19 +97,19 @@ export const HeroSection = () => {
                   <MapPin className="w-8 h-8 text-primary-foreground" />
                 </div>
                 <h2 className="text-2xl md:text-3xl font-display font-bold text-card-foreground mb-4">
-                  Познакомьтесь с <span className="text-gradient-primary">Gini</span>
+                  Откройте <span className="text-gradient-primary">ДНК локации</span>
                 </h2>
                 <p className="text-muted text-card-foreground/70 mb-8">
-                  AI-ассистент для анализа локаций, который понимает ваш бизнес
+                  Полная аналитика любой точки города за несколько минут
                 </p>
                 
                 {/* Demo Stats */}
                 <div className="grid grid-cols-2 gap-4">
                   {[
                     { value: '3-7 мин', label: 'на анализ' },
-                    { value: '28+', label: 'категорий' },
-                    { value: '100%', label: 'данных' },
-                    { value: 'AI', label: 'технологии' },
+                    { value: '28+', label: 'категорий данных' },
+                    { value: '500+', label: 'источников' },
+                    { value: 'AI', label: 'инсайты' },
                   ].map((stat) => (
                     <div 
                       key={stat.label}
