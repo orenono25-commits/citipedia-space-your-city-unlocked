@@ -45,9 +45,8 @@ export const HeroSection = () => {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-tight mb-6 text-foreground"
             >
-              Принимайте{' '}
-              <span className="text-gradient-primary">умные решения</span>
-              {' '}с Citipedia Space
+              Выбирайте локацию, на которой{' '}
+              <span className="text-gradient-primary">бизнес точно выстрелит</span>, с Citipedia Space
             </motion.h1>
 
             {/* Subheadline */}
