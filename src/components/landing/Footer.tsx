@@ -100,7 +100,7 @@ export const Footer = () => {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground">
-            © {currentYear} Citipedia Space. Все права защищены.
+            © {currentYear} Citipedia Space by Qala AI Ltd. Все права защищены.
           </p>
           <div className="flex items-center gap-6 text-sm">
             <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
