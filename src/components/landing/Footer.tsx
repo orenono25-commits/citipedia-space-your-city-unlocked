@@ -64,16 +64,16 @@ export const Footer = () => {
               </li>
               <li>
                 <a
-                  href="tel:+77001234567"
+                  href="tel:+77078079429"
                   className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors"
                 >
                   <Phone className="w-5 h-5" />
-                  +7 (700) 123-45-67
+                  +7 (707) 807-94-29
                 </a>
               </li>
-              <li className="flex items-center gap-3 text-muted-foreground">
-                <MapPin className="w-5 h-5" />
-                Казахстан, Алматы
+              <li className="flex items-start gap-3 text-muted-foreground">
+                <MapPin className="w-5 h-5 mt-0.5 flex-shrink-0" />
+                <span>Казахстан, Алматы<br />ул. Желтоксан 87, офис 20</span>
               </li>
             </ul>
 
