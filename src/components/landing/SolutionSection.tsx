@@ -1,7 +1,11 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { CheckCircle2, Target, BarChart3, Users2, Map, TrendingUp, Shield } from 'lucide-react';
+import { 
+  CheckCircle2, Target, BarChart3, Users2, Map, TrendingUp, Shield,
+  UtensilsCrossed, Scissors, Dumbbell, ShoppingBag, Wrench, Building2, Pill, Stethoscope,
+  type LucideIcon
+} from 'lucide-react';
 
 const benefits = [
   {
@@ -100,21 +104,22 @@ export const SolutionSection = () => {
             Подходит для любого бизнеса:
           </h3>
           <div className="flex flex-wrap justify-center gap-3">
-            {[
-              'Рестораны и кафе',
-              'Салоны красоты',
-              'Фитнес-клубы',
-              'Розничные магазины',
-              'Сервисные центры',
-              'Франшизы',
-              'Аптеки',
-              'Медицинские клиники',
-            ].map((category) => (
+            {([
+              { name: 'Рестораны и кафе', icon: UtensilsCrossed },
+              { name: 'Салоны красоты', icon: Scissors },
+              { name: 'Фитнес-клубы', icon: Dumbbell },
+              { name: 'Розничные магазины', icon: ShoppingBag },
+              { name: 'Сервисные центры', icon: Wrench },
+              { name: 'Франшизы', icon: Building2 },
+              { name: 'Аптеки', icon: Pill },
+              { name: 'Медицинские клиники', icon: Stethoscope },
+            ] as { name: string; icon: LucideIcon }[]).map((category) => (
               <span
-                key={category}
-                className="px-4 py-2 rounded-full bg-secondary text-foreground text-sm font-medium border border-border hover:border-primary/50 hover:bg-primary/10 transition-colors"
+                key={category.name}
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary text-foreground text-sm font-medium border border-border hover:border-primary/50 hover:bg-primary/10 transition-colors"
               >
-                {category}
+                <category.icon className="w-4 h-4 text-primary" />
+                {category.name}
               </span>
             ))}
           </div>
